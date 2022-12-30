@@ -3,7 +3,7 @@ Java Spring Boot (API), final project for Advanced Software Engineering course.
 
 Run src\main\java\com\FawryWebApp\demo\DemoApplication.java
 
-Endpoints:
+# Endpoints
 
 /user/check/{email}
 
