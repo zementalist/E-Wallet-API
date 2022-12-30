@@ -1,9 +1,9 @@
 # E-Wallet-API
 Java Spring Boot (API), final project for Advanced Software Engineering course.
-<br>
+
 Run src\main\java\com\FawryWebApp\demo\DemoApplication.java
-<br>
-Endpoints:<br>
+
+Endpoints:
 
 /user/check/{email}
 /user/login
