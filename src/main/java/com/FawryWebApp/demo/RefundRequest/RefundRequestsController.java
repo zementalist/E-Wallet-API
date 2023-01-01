@@ -34,7 +34,10 @@ public class RefundRequestsController {
     }
 
     public RefundRequest getRequestByTransactId(int transaction_id) {
-        return ApplicationState.refund_requests.stream().filter(c -> c.transaction_id == transaction_id).toList().get(0);
+        List<RefundRequest> requests = ApplicationState.refund_requests.stream().filter(c -> c.transaction_id == transaction_id).toList();
+        if(requests.size() == 1)
+            return requests.get(0);
+        return null;
     }
 
     @GetMapping("approve/{request_id}")
@@ -55,7 +58,7 @@ public class RefundRequestsController {
             request.reject();
             return new ResponseEntity<>("Request Id(" + request.transaction_id + ") rejected", HttpStatusCode.valueOf(200));
         }
-        return new ResponseEntity<>("Something went wrong", HttpStatusCode.valueOf(404));
+        return new ResponseEntity<>("Refunding Request is NOT found", HttpStatusCode.valueOf(404));
     }
 
 }

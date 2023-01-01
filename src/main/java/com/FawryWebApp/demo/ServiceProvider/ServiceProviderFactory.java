@@ -18,7 +18,7 @@ public class ServiceProviderFactory {
 		else if(type.equals("Landline")) {
 			return new Landline(type);
 		}
-		else if(type.equals("Donations")) {
+		else if(type.equals("Donation")) {
 			return new Donation(type);
 		}
 		else if(type.equals("School")) {

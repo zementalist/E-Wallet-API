@@ -33,9 +33,13 @@ public class DiscountsController {
     }
 
     @GetMapping("remove/{discount_id}")
-    public ResponseEntity<?> remove(int discount_id) {
-        ApplicationState.available_discounts.remove(discount_id-1);
-        return new ResponseEntity<>("Discount Removed.", HttpStatusCode.valueOf(200));
+    public ResponseEntity<?> remove(@PathVariable int discount_id) {
+        String response_msg = "Discount is NOT found";
+        if(ApplicationState.available_discounts.size() >= discount_id) {
+            ApplicationState.available_discounts.remove(discount_id - 1);
+            response_msg = "Discount removed.";
+        }
+        return new ResponseEntity<>(response_msg, HttpStatusCode.valueOf(200));
     }
 
 }
